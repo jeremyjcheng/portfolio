@@ -6,12 +6,59 @@
     <title>Projects</title>
   </head>
   <body>
-    <h1>Here are my projects!</h1>
     <nav>
       <a href="../index.html">Home</a> | <a href="index.html">Projects</a> |
       <a href="../contact/index.html">Contact</a> |
       <a href="../resume/index.html">Resume</a> |
       <a href="https://github.com/jeremyjcheng" target="_blank">GitHub</a>
     </nav>
+    <h1>Here are my projects!</h1>
+
+    <section>
+      <h2>EcoNaut</h2>
+      <time>April 2025 - July 2025</time>
+      <p>
+        Ocean health monitoring app that detects algal bloom risk and trends
+      </p>
+      <ul>
+        <li>
+          Built a full-stack web application with React/TypeScript frontend and
+          Flask backend, featuring ocean health monitoring dashboard with
+          interactive maps and analytics
+        </li>
+        <li>
+          Implemented machine learning pipeline using XGBoost and Facebook
+          Prophet for multivariate time series forecasting, achieving 87%
+          accuracy in algal bloom detection
+        </li>
+        <li>
+          Deployed application using Netlify (frontend) and Render (backend)
+          with PostgreSQL database for scalable data storage and automated
+          CI/CD.
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Recipe Rating Predictor</h2>
+      <time> May 2025 - June 2025</time>
+      <p>
+        Predicts whether a Food.com recipe will be enjoyed using features from
+        ingredients, tags, and contributor history
+      </p>
+      <ul>
+        <li>
+          Used the provided Food.com dataset to explore, clean, and prepare
+          training data with scikit-learn and pandas
+        </li>
+        <li>
+          Engineered features including one-hot tags, ingredient flags, rating
+          statistics, contributor encoding, and nutrition ratios
+        </li>
+        <li>
+          Trained and tuned a RandomForestClassifier with GridSearchCV and
+          evaluated results on holdout data
+        </li>
+      </ul>
+    </section>
   </body>
 </html>
