@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Resume</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <nav>
@@ -16,11 +17,25 @@
     <h1>Resume</h1>
 
     <section>
+      <h2>Technical Skills</h2>
+      <ul>
+        <li>Languages: Python, SQL, TypeScript, Java, Javascript, HTML/CSS</li>
+        <li>
+          Skills: Real-time telemetry, Time Series Analysis, Data Modeling,
+          Dashboarding
+        </li>
+        <li>
+          Tools: Postgres (pgvector), DuckDB, Flask, React, Pandas,
+          scikit-learn, PyTorch, XGBoost, Prophet, Git
+        </li>
+      </ul>
+    </section>
+    <section>
       <h2>Education</h2>
       <article>
         <h3>University of California, San Diego</h3>
         <p>B.S. in Data Science</p>
-        <time>2023 – 2027</time>
+        <time>Expected Graduation June 2027</time>
       </article>
     </section>
 
@@ -35,8 +50,45 @@
         <h3>Software Engineering Intern – Specter Aerospace</h3>
         <time>June 2025 – September 2025</time>
         <ul>
-          <li>Developed and extended facility control GUIs in React.</li>
-          <li>Built and optimized data dashboards and HMIs.</li>
+          <li>
+            Shipped React control panels used in hypersonic test operations,
+            shortening operator paths, and adding real time telemetry via
+            Node.js
+          </li>
+          <li>
+            Built the facility HMI and live dashboards that visualize hundreds
+            of ADS variables at high frequency, improving readability
+          </li>
+          <li>
+            Stabilized the PLC and UI data path with sequence checks and
+            buffered streams, removing UI desyncs and keeping hardware signals
+            aligned with on-screen controls
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <img
+          src="../images/filyn.png"
+          alt="Fizz Logo"
+          style="height: 20px; vertical-align: middle; margin-right: 8px"
+        />
+        <h3>Data Science Summer Intern – Filyn AI</h3>
+        <time>August 2025</time>
+        <ul>
+          <li>
+            Ingested FDA CTD PDFs into a normalized Postgres model with
+            section-level metadata, which turned free-form documents into
+            queryable records for analysis
+          </li>
+          <li>
+            Designed a CTD-aware schema with text indexes, enabling fast
+            filterable search by module, section, title, and keywords
+          </li>
+          <li>
+            Shipped semantic search using embeddings in pgvector, improving
+            retrieval quality for section lookups
+          </li>
         </ul>
       </article>
       <article>
@@ -49,24 +101,20 @@
         <time>July 2024 – September 2024</time>
         <ul>
           <li>
-            Built a news indexing system to retrieve and rank relevant news
-            articles for users
+            Built a news indexing and ranking pipeline over NewsAPI and Google
+            News that turned user prompts into traceable, ranked result
           </li>
           <li>
-            Applied NLP techniques to improve query accuracy and article
-            relevancy
+            Implemented query expansion and similarity search mechanisms,
+            improving the precision and relevance based on user input
+          </li>
+          <li>
+            Analyzed and visualized data, providing insights into user
+            engagement and content relevancy through metrics including NDCG
+            (84%), MAP (73%), and MRR (83%)
           </li>
         </ul>
       </article>
-    </section>
-
-    <section>
-      <h2>Skills</h2>
-      <ul>
-        <li>Python, JavaScript, SQL</li>
-        <li>React, Flask, Postgres, Git</li>
-        <li>Machine Learning, Data Visualization</li>
-      </ul>
     </section>
   </body>
 </html>
