@@ -9,7 +9,7 @@ body {
   */
   font: 100%/1.5 system-ui;
   max-width: 100ch;
-  margin-inline: max(1em, (100% - 100ch) / 2);
+  margin-inline: auto;
   padding: 25px 50px;
 }
 
@@ -124,4 +124,40 @@ h1 {
 
 h2 {
   font-size: 2em;
+}
+
+/* Resume styling */
+section {
+  margin-bottom: 2em;
+}
+
+section h2 {
+  border-bottom: 1px solid oklch(80% 3% 200);
+  padding-bottom: 0.3em;
+  margin-bottom: 1em;
+  font-size: 2em;
+}
+
+article {
+  margin-bottom: 1.5em;
+}
+
+article h3 {
+  font-size: 1.25em;
+  margin: 0.25em 0;
+}
+
+article time {
+  display: block;
+  font-size: 0.9em;
+  color: black;
+}
+
+ul {
+  padding-left: 1.2em;
+}
+
+ul li {
+  margin-bottom: 0.5em;
+  line-height: 1.4em;
 }
