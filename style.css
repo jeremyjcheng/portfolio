@@ -5,12 +5,12 @@ html {
 
 body {
   /* Set line height to 1.5 times the font size
-         and use the OS’s UI font as the website font
-       */
+    and use the OS’s UI font as the website font
+  */
   font: 100%/1.5 system-ui;
   max-width: 100ch;
   margin-inline: max(1em, (100% - 100ch) / 2);
-  padding: 0.1rem;
+  padding: 25px 50px;
 }
 
 nav ul,
@@ -83,4 +83,25 @@ label {
 
 button {
   grid-column: 1 / -1;
+}
+
+/* Projects responsive grid */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+}
+
+/* Horizontal alignment with subgrid */
+.projects article {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  padding: 1em;
+  border: 1px solid oklch(80% 3% 200);
+  border-radius: 8px;
+}
+
+/* Avoid excessive spacing */
+.projects h2 {
+  margin: 0;
 }
