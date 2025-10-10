@@ -89,6 +89,7 @@ button {
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1em;
 }
 
 /* Horizontal alignment with subgrid */
@@ -96,12 +97,31 @@ button {
   display: grid;
   grid-template-rows: subgrid;
   grid-row: span 3;
-  padding: 1em;
-  border: 1px solid oklch(80% 3% 200);
-  border-radius: 8px;
+  margin: 0;
+  gap: 1em;
 }
 
 /* Avoid excessive spacing */
 .projects h2 {
   margin: 0;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+/* Make h1 larger for stronger contrast */
+h1 {
+  font-size: 4em;
+}
+
+h2 {
+  font-size: 2em;
 }
