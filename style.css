@@ -3,4 +3,28 @@ body {
          and use the OS’s UI font as the website font
        */
   font: 100%/1.5 system-ui;
+  max-width: 100ch;
+  margin-inline: max(1em, (100% - 100ch) / 2);
+  padding: 1.5rem;
+}
+
+nav ul,
+nav li {
+  display: content;
+}
+
+nav {
+  display: flex;
+}
+nav a {
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  background: #4182c4;
+  padding: 0.5em;
+}
+
+nav a:hover {
+  background-color: #032d59;
 }
