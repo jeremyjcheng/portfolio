@@ -153,11 +153,12 @@ article time {
   color: black;
 }
 
-ul {
-  padding-left: 1.2em;
-}
-
 ul li {
   margin-bottom: 0.5em;
   line-height: 1.4em;
+}
+
+.education p,
+.education time {
+  padding-left: 1.5em;
 }
