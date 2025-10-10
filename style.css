@@ -1,3 +1,8 @@
+html {
+  --color-accent: oklch(0.5408 0.1258 250);
+  accent-color: var(--color-accent);
+}
+
 body {
   /* Set line height to 1.5 times the font size
          and use the OS’s UI font as the website font
@@ -10,21 +15,69 @@ body {
 
 nav ul,
 nav li {
-  display: content;
+  display: contents;
 }
 
 nav {
   display: flex;
+  margin-bottom: 1em;
+  border-bottom: 1px solid oklch(80% 3% 200);
 }
+
 nav a {
   flex: 1;
   text-align: center;
   text-decoration: none;
-  color: white;
-  background: #4182c4;
+  color: inherit;
   padding: 0.5em;
 }
 
+nav a.current {
+  border-bottom: 0.4em solid oklch(80% 3% 200);
+  padding-bottom: 0.1em;
+}
+
 nav a:hover {
-  background-color: #032d59;
+  border-bottom: 0.4em solid var(--color-accent);
+  background-color: oklch(from var(--color-accent) 95% 5% h);
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+label,
+input,
+textarea,
+button {
+  display: block;
+}
+
+input,
+textarea,
+button {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5em;
+  border: 1px solid oklch(80% 3% 200);
+  border-radius: 4px;
+}
+
+label {
+  margin-bottom: 0.5em;
+}
+
+button {
+  background-color: var(--color-accent);
+  color: white;
+  border: none;
+  padding: 0.5em 1em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: oklch(from var(--color-accent) 40% 5% h);
 }
