@@ -64,10 +64,19 @@ select.addEventListener("input", (event) => {
   localStorage.colorScheme = scheme; // Save user preference
 });
 
-// const navLinks = $$("nav a");
-// let currentLink = navLinks.find(
-//   (a) => a.host === location.host && a.pathname === location.pathname
-// );
-// if (currentLink) {
-//   currentLink.classList.add("current");
-// }
+const form = document.querySelector("form");
+
+form?.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const data = new FormData(form);
+  let url = form.action + "?";
+  let params = [];
+
+  for (let [name, value] of data) {
+    params.push(`${name}=${encodeURIComponent(value)}`);
+  }
+
+  url += params.join("&");
+  location.href = url;
+});
