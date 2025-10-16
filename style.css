@@ -1,3 +1,23 @@
+:root {
+  color-scheme: light dark;
+}
+
+nav {
+  --border-color: 1px solid var(--border-color);
+}
+
+nav a:hover {
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+}
+
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 80%;
+  font-family: inherit;
+}
+
 html {
   --color-accent: oklch(0.5408 0.1258 250);
   accent-color: var(--color-accent);
