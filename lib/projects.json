@@ -1,19 +1,19 @@
 [
   {
     "title": "Algal Bloom Detector",
-    "image": "../images/econaut.png",
+    "image": "images/econaut.png",
     "year": 2025,
     "description": "\n          Built a full-stack web application with React/TypeScript frontend and\n          Flask backend, featuring ocean health monitoring dashboard with\n          interactive maps and analytics. Implemented machine learning pipeline\n          multivariate time series forecasting, achieving 87% accuracy in algal\n          bloom detection. Deployed using Netlify and Render.\n        "
   },
   {
     "title": "Recipe Rating Predictor",
-    "image": "../images/dsc80_project.png",
+    "image": "images/dsc80_project.png",
     "year": 2024,
     "description": "\n          Used the provided Food.com dataset to explore, clean, and prepare\n          training data with scikit-learn and pandas. Engineered features\n          including one-hot tags, ingredient flags, rating statistics,\n          contributor encoding, and nutrition ratios. Trained and tuned a\n          RandomForestClassifier with GridSearchCV and evaluated results on\n          holdout data\n        "
   },
   {
     "title": "One Piece Classifier",
-    "image": "../images/one_piece.png",
+    "image": "images/one_piece.png",
     "year": 2023,
     "description": "\n          Minima praesentium aliquid placeat accusamus recusandae, velit\n          voluptatem odio voluptate nostrum amet. Soluta distinctio consequuntur\n          suscipit molestias, minima alias voluptatem maxime dolore odio.\n          Laboriosam dolorum quas, ipsam dolorem sunt in.\n        "
   },
