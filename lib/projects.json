@@ -15,7 +15,7 @@
     "title": "One Piece Classifier",
     "image": "images/one_piece.png",
     "year": 2023,
-    "description": "\n          Minima praesentium aliquid placeat accusamus recusandae, velit\n          voluptatem odio voluptate nostrum amet. Soluta distinctio consequuntur\n          suscipit molestias, minima alias voluptatem maxime dolore odio.\n          Laboriosam dolorum quas, ipsam dolorem sunt in.\n        "
+    "description": "Built a PyTorch image classifier for One Piece using transfer-learned CNNs on a custom dataset, shipped as a Flask web app for real-time uploads and predictions. Implemented preprocessing and confidence scoring for accurate, fast character recognition. "
   },
   {
     "title": "Alias sint quos odio!",
