@@ -1,17 +1,20 @@
 [
   {
-    "title": "Lorem ipsum dolor sit.",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "\n          Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe\n          eligendi adipisci voluptatum quam, aliquam autem eius quis, officia,\n          cum ipsam a! Dicta cumque odit delectus voluptatum beatae enim\n          excepturi facilis.\n        "
+    "title": "Algal Bloom Detector",
+    "image": "../images/econaut.png",
+    "year": 2025,
+    "description": "\n          Built a full-stack web application with React/TypeScript frontend and\n          Flask backend, featuring ocean health monitoring dashboard with\n          interactive maps and analytics. Implemented machine learning pipeline\n          multivariate time series forecasting, achieving 87% accuracy in algal\n          bloom detection. Deployed using Netlify and Render.\n        "
   },
   {
-    "title": "Nemo sed non minus.",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "\n          Voluptates dignissimos aperiam consequatur quasi eos vitae error\n          doloremque ad ut autem fugit dolorem quis ipsam voluptatem odio\n          delectus praesentium, doloribus suscipit soluta unde atque temporibus.\n          Ex perspiciatis ducimus alias?\n        "
+    "title": "Recipe Rating Predictor",
+    "image": "../images/dsc80_project.png",
+    "year": 2024,
+    "description": "\n          Used the provided Food.com dataset to explore, clean, and prepare\n          training data with scikit-learn and pandas. Engineered features\n          including one-hot tags, ingredient flags, rating statistics,\n          contributor encoding, and nutrition ratios. Trained and tuned a\n          RandomForestClassifier with GridSearchCV and evaluated results on\n          holdout data\n        "
   },
   {
-    "title": "Excepturi magnam mollitia dicta?",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "title": "One Piece Classifier",
+    "image": "../images/one_piece.png",
+    "year": 2023,
     "description": "\n          Minima praesentium aliquid placeat accusamus recusandae, velit\n          voluptatem odio voluptate nostrum amet. Soluta distinctio consequuntur\n          suscipit molestias, minima alias voluptatem maxime dolore odio.\n          Laboriosam dolorum quas, ipsam dolorem sunt in.\n        "
   },
   {
@@ -58,15 +61,5 @@
     "title": "Aut, non nobis? Quod!",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
     "description": "\n          Enim cupiditate inventore facere, eaque nam unde, similique aliquid,\n          minima cumque ab ut eligendi reprehenderit. Doloremque autem,\n          laudantium excepturi dolore porro fugit iste vero, repellendus ab\n          reiciendis asperiores eius quisquam!\n        "
-  },
-  {
-    "title": "EcoNaut",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "\n          Built a full-stack web application with React/TypeScript frontend and\n          Flask backend, featuring ocean health monitoring dashboard with\n          interactive maps and analytics. Implemented machine learning pipeline\n          multivariate time series forecasting, achieving 87% accuracy in algal\n          bloom detection. Deployed using Netlify and Render.\n        "
-  },
-  {
-    "title": "Recipe Rating Predictor",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "\n          Used the provided Food.com dataset to explore, clean, and prepare\n          training data with scikit-learn and pandas. Engineered features\n          including one-hot tags, ingredient flags, rating statistics,\n          contributor encoding, and nutrition ratios. Trained and tuned a\n          RandomForestClassifier with GridSearchCV and evaluated results on\n          holdout data\n        "
   }
 ]

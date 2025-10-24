@@ -243,3 +243,13 @@ body.dark .github-stats .stat p {
 body.dark .github-stats .stat:not(:last-child) {
   border-color: #555; /* subtle divider */
 }
+
+.projects img {
+  width: 100%; /* make it fit the card width */
+  max-width: 250px; /* shrink large images */
+  height: 160px; /* keep aspect ratio */
+  border-radius: 8px; /* optional rounded corners */
+  display: block;
+  margin: 0 auto; /* center it */
+  object-fit: contain; /* ensure it’s not cropped */
+}
