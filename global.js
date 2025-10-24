@@ -115,10 +115,19 @@ export function renderProjects(
     // Add each project to the container
     const article = document.createElement("article");
 
+    // Resolve image path based on current location
+    let imagePath = project.image;
+    if (!imagePath.startsWith("http") && !imagePath.startsWith("/")) {
+      // If we're in a subdirectory (like /projects/), we need to go up one level
+      if (location.pathname.includes("/projects/")) {
+        imagePath = "../" + imagePath;
+      }
+    }
+
     // Populate the article with project details
     article.innerHTML = `
     <${headingLevel}>${project.title}</${headingLevel}>
-    <img src="${project.image}" alt="${project.title}">
+    <img src="${imagePath}" alt="${project.title}">
     <p>${project.description || ""}</p>
   `;
     // Append the article to the container
