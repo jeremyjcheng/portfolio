@@ -125,3 +125,8 @@ export function renderProjects(
     containerElement.appendChild(article);
   });
 }
+
+// Function to fetch GitHub data for a given username
+export async function fetchGithubData(username) {
+  return fetchJSON(`https://api.github.com/users/${username}`);
+}

@@ -182,3 +182,64 @@ ul li {
 .education time {
   padding-left: 1.5em;
 }
+
+/* GitHub Stats Container */
+.github-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Each Stat Box */
+.github-stats .stat {
+  flex: 1;
+  min-width: 120px;
+}
+
+/* Labels */
+.github-stats .stat h3 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+
+/* Values */
+.github-stats .stat p {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+  color: inherit;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Subtle divider lines */
+.github-stats .stat:not(:last-child) {
+  border-right: 1px solid #e0e0e0;
+}
+
+/* Dark Mode Enhancements */
+body.dark .github-stats {
+  background-color: transparent;
+}
+
+body.dark .github-stats .stat h3 {
+  color: #ccc !important; /* brighter labels */
+}
+
+body.dark .github-stats .stat p {
+  color: #ffffff !important;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+}
+
+body.dark .github-stats .stat:not(:last-child) {
+  border-color: #555; /* subtle divider */
+}
