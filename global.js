@@ -128,7 +128,8 @@ export function renderProjects(
     article.innerHTML = `
     <${headingLevel}>${project.title}</${headingLevel}>
     <img src="${imagePath}" alt="${project.title}">
-    <p>${project.description || ""}</p>
+    <p> ${project.description || ""} </p>
+    <p class="year">Year: ${project.year || ""}</p>
   `;
     // Append the article to the container
     containerElement.appendChild(article);

@@ -114,11 +114,14 @@ button {
 
 /* Horizontal alignment with subgrid */
 .projects article {
-  display: grid;
-  grid-template-rows: subgrid;
-  grid-row: span 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75em;
   margin: 0;
-  gap: 1em;
+  padding: 0.5em;
+  border-radius: 8px;
+  background: color-mix(in oklch, canvas 95%, canvastext 5%);
 }
 
 /* Avoid excessive spacing */
@@ -252,4 +255,55 @@ body.dark .github-stats .stat:not(:last-child) {
   display: block;
   margin: 0 auto; /* center it */
   object-fit: contain; /* ensure it’s not cropped */
+}
+
+#projects-plot {
+  width: 100%;
+  max-width: 20em;
+  margin-block: 2em;
+  margin-inline: auto;
+  display: block;
+  overflow: visible;
+}
+
+/* Container for chart + legend */
+.projects-chart {
+  max-width: 30em;
+  margin: 1.5em auto; /* center the whole block */
+  padding: 1em;
+  border: 1px solid oklch(80% 3% 200);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center contents */
+  gap: 0.5em;
+  background: color-mix(in oklch, canvas 97%, canvastext 3%);
+}
+
+/* Pie chart legend */
+.legend {
+  display: flex;
+  flex-wrap: nowrap; /* keep everything on one line */
+  gap: 1.25em; /* horizontal spacing between items */
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.5em 0;
+  overflow-x: auto; /* scroll if too narrow */
+  justify-content: center; /* center items within container */
+}
+
+.legend li,
+.legend .legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5em; /* smaller than the legend row gap */
+  white-space: nowrap; /* keep label on one line */
+}
+
+.legend .swatch {
+  width: 1em;
+  aspect-ratio: 1 / 1;
+  background-color: var(--color);
+  border-radius: 4px;
+  display: inline-block;
 }
