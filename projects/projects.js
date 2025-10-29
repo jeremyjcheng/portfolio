@@ -21,15 +21,18 @@ renderProjects(projects, projectsContainer, "h2");
 // d3 setup
 let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
 
-// your data
-let data = [
-  { value: 1, label: "apples" },
-  { value: 2, label: "oranges" },
-  { value: 3, label: "mangos" },
-  { value: 4, label: "pears" },
-  { value: 5, label: "limes" },
-  { value: 5, label: "cherries" },
-];
+// derive pie data: count of projects per year (label = year)
+let rolledData = d3
+  .rollups(
+    projects,
+    (v) => v.length,
+    (d) => d.year
+  )
+  .sort((a, b) => d3.ascending(a[0], b[0]));
+
+let data = rolledData.map(([year, count]) => {
+  return { value: count, label: year };
+});
 
 // generate pie slice data automatically (use the numeric `value` field)
 let pieGenerator = d3.pie().value((d) => d.value);
