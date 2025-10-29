@@ -268,36 +268,35 @@ body.dark .github-stats .stat:not(:last-child) {
 
 /* Container for chart + legend */
 .projects-chart {
-  max-width: 30em;
-  margin: 1.5em auto; /* center the whole block */
-  padding: 1em;
-  border: 1px solid oklch(80% 3% 200);
-  border-radius: 8px;
+  max-width: 60em;
+  margin: 1.5em auto;
+  padding: 0;
   display: flex;
-  flex-direction: column;
-  align-items: center; /* center contents */
-  gap: 0.5em;
-  background: color-mix(in oklch, canvas 97%, canvastext 3%);
+  flex-direction: row; /* side by side */
+  align-items: center;
+  gap: 2em;
 }
 
 /* Pie chart legend */
 .legend {
-  display: flex;
-  flex-wrap: nowrap; /* keep everything on one line */
-  gap: 1.25em; /* horizontal spacing between items */
+  display: grid; /* grid inside a bordered box */
+  grid-template-columns: repeat(3, minmax(8em, 1fr));
+  gap: 0.75em 2em;
   list-style: none;
-  padding: 0;
-  margin: 0 0 0.5em 0;
-  overflow-x: auto; /* scroll if too narrow */
-  justify-content: center; /* center items within container */
+  padding: 0.75em 1em;
+  margin: 0;
+  border: 1px solid oklch(80% 3% 200);
+  border-radius: 6px;
+  background: color-mix(in oklch, canvas 98%, canvastext 2%);
+  flex: 1; /* take remaining width */
 }
 
 .legend li,
 .legend .legend-item {
   display: flex;
   align-items: center;
-  gap: 0.5em; /* smaller than the legend row gap */
-  white-space: nowrap; /* keep label on one line */
+  gap: 0.5em;
+  white-space: nowrap;
 }
 
 .legend .swatch {
