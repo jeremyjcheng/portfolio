@@ -66,7 +66,66 @@ let searchInput = document.querySelector(".searchBar");
 searchInput.addEventListener("change", (event) => {
   // update query value
   query = event.target.value;
-  // TODO: filter the projects
 
-  // TODO: render updated projects!
+  // Filter projects
+  const filteredProjects = projects.filter(
+    (project) =>
+      project.title.toLowerCase().includes(query.toLowerCase()) ||
+      project.description.toLowerCase().includes(query.toLowerCase()) ||
+      project.year.toString().includes(query)
+  );
+
+  // Clear container before re-rendering
+  projectsContainer.innerHTML = "";
+
+  // Render updated projects and update pie/legend
+  renderProjects(filteredProjects, projectsContainer, "h2");
+  renderPieChart(filteredProjects);
 });
+// Refactor all plotting into one function
+function renderPieChart(projectsGiven) {
+  // Re-calculate rolled data
+  let newRolledData = d3.rollups(
+    projectsGiven,
+    (v) => v.length,
+    (d) => d.year
+  );
+
+  // re-calculate data
+  let newData = newRolledData.map(([year, count]) => {
+    return { label: String(year), value: count };
+  });
+
+  // re-calculate slice generator, arc data, arc, etc.
+  let newSliceGenerator = d3.pie().value((d) => d.value);
+  let newArcData = newSliceGenerator(newData);
+  let newArc = d3.arc().innerRadius(0).outerRadius(50);
+
+  let newSVG = d3.select("#projects-plot");
+  newSVG.selectAll("*").remove();
+  d3.select(".legend").selectAll("*").remove();
+
+  // update paths and legends
+  newSVG
+    .selectAll("path")
+    .data(newArcData)
+    .join("path")
+    .attr("d", newArc)
+    .attr("fill", (d, i) => d3.schemeTableau10[i % 10])
+    .attr("stroke", "white")
+    .attr("transform", "translate(100,100)");
+
+  let legend = d3.select(".legend");
+  legend
+    .selectAll("li")
+    .data(newData)
+    .join("li")
+    .attr("class", "legend-item")
+    .attr("style", (d, i) => `--color:${d3.schemeTableau10[i % 10]}`)
+    .html(
+      (d) => `<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`
+    );
+}
+
+// Call this function on page load
+renderPieChart(projects);
