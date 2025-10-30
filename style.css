@@ -4,6 +4,40 @@
   right: 1rem;
   font-size: 80%;
   font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.color-scheme label {
+  font-size: 0.9em;
+  color: inherit;
+  white-space: nowrap;
+}
+
+.color-scheme select {
+  padding: 0.4em 0.6em;
+  border: 1px solid oklch(80% 3% 200);
+  border-radius: 6px;
+  background-color: canvas;
+  color: canvastext; /* match nav link color */
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.color-scheme select option {
+  color: canvastext; /* ensure dropdown options also match */
+}
+
+.color-scheme select:hover {
+  border-color: var(--color-accent);
+  background-color: color-mix(in oklch, canvas 95%, canvastext 5%);
+}
+
+.color-scheme select:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
 html {
@@ -37,14 +71,31 @@ nav {
   margin-bottom: 1.5em;
   --border-color: oklch(50% 10% 200 / 40%);
   border-bottom: 1px solid var(--border-color);
+  flex-wrap: wrap; /* allow items to wrap on small screens */
 }
 
 nav a {
-  flex: 1;
+  flex: 1 1 auto; /* shrink but don't go below content width */
+  min-width: fit-content; /* prevent items from becoming too small */
   text-align: center;
   text-decoration: none;
   color: inherit;
   padding: 10px 20px;
+}
+
+/* Responsive navigation for smaller screens */
+@media (max-width: 768px) {
+  nav a {
+    padding: 10px 12px; /* reduce padding on smaller screens */
+    font-size: 0.9em; /* slightly smaller text */
+  }
+}
+
+@media (max-width: 480px) {
+  nav a {
+    padding: 8px 8px; /* even smaller padding */
+    font-size: 0.85em;
+  }
 }
 
 nav a.current {
