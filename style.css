@@ -4,6 +4,40 @@
   right: 1rem;
   font-size: 80%;
   font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.color-scheme label {
+  font-size: 0.9em;
+  color: inherit;
+  white-space: nowrap;
+}
+
+.color-scheme select {
+  padding: 0.4em 0.6em;
+  border: 1px solid oklch(80% 3% 200);
+  border-radius: 6px;
+  background-color: canvas;
+  color: canvastext; /* match nav link color */
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.color-scheme select option {
+  color: canvastext; /* ensure dropdown options also match */
+}
+
+.color-scheme select:hover {
+  border-color: var(--color-accent);
+  background-color: color-mix(in oklch, canvas 95%, canvastext 5%);
+}
+
+.color-scheme select:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
 html {
