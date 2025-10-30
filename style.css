@@ -364,3 +364,26 @@ body.dark .github-stats .stat:not(:last-child) {
   box-shadow: 0 0 0 4px
     color-mix(in oklch, var(--color-accent), transparent 80%);
 }
+
+/* Pie interactivity */
+#projects-plot path {
+  transition: 300ms;
+  cursor: pointer;
+}
+
+#projects-plot:has(path:hover) path:not(:hover) {
+  opacity: 0.55;
+}
+
+.legend .legend-item {
+  cursor: pointer;
+}
+
+/* Selected state overrides color for both legend and paths */
+.selected {
+  --color: oklch(70% 0.1 400) !important;
+}
+
+.selected:is(path) {
+  fill: var(--color);
+}

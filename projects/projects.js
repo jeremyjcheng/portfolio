@@ -71,7 +71,7 @@ function renderPieChart(projectsGiven) {
   d3.select(".legend").selectAll("*").remove();
 
   // update paths and legends
-  newSVG
+  const paths = newSVG
     .selectAll("path")
     .data(newArcData)
     .join("path")
@@ -80,15 +80,54 @@ function renderPieChart(projectsGiven) {
     .attr("stroke", "white");
 
   let legend = d3.select(".legend");
-  legend
+  const legendItems = legend
     .selectAll("li")
     .data(newData)
     .join("li")
     .attr("class", "legend-item")
     .attr("style", (d, i) => `--color:${d3.schemeTableau10[i % 10]}`)
     .html(
-      (d) => `<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`
+      (d) => `<span class=\"swatch\"></span> ${d.label} <em>(${d.value})</em>`
     );
+
+  // selection state and syncing
+  let selectedIndex = -1;
+
+  function applySelection() {
+    paths.attr("class", (d) =>
+      newArcData.indexOf(d) === selectedIndex ? "selected" : null
+    );
+    legendItems.attr("class", (d, i) =>
+      i === selectedIndex ? "legend-item selected" : "legend-item"
+    );
+
+    // Filter visible project cards based on selected year (if any)
+    if (selectedIndex === -1) {
+      renderProjects(projectsGiven, projectsContainer, "h2");
+      titleElement.textContent = `${projectsGiven.length} Total Projects`;
+    } else {
+      const selectedYear = newData[selectedIndex].label;
+      const filtered = projectsGiven.filter(
+        (p) => String(p.year) === String(selectedYear)
+      );
+      renderProjects(filtered, projectsContainer, "h2");
+      titleElement.textContent = `${filtered.length} Total Projects`;
+    }
+  }
+
+  paths.on("click", (event, d) => {
+    const i = newArcData.indexOf(d);
+    selectedIndex = selectedIndex === i ? -1 : i;
+    applySelection();
+  });
+
+  legendItems.on("click", function (event, d, i) {
+    const idx = typeof i === "number" ? i : newData.indexOf(d);
+    selectedIndex = selectedIndex === idx ? -1 : idx;
+    applySelection();
+  });
+
+  applySelection();
 }
 
 // Call this function on page load
