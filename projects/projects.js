@@ -25,6 +25,7 @@ let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
 // Search
 let query = "";
+let selectedYear = null; // persist selected year across interactions
 
 let searchInput = document.querySelector(".searchBar");
 
@@ -33,12 +34,19 @@ searchInput.addEventListener("change", (event) => {
   query = event.target.value;
 
   // Filter projects
-  const filteredProjects = projects.filter(
+  let filteredProjects = projects.filter(
     (project) =>
       project.title.toLowerCase().includes(query.toLowerCase()) ||
       project.description.toLowerCase().includes(query.toLowerCase()) ||
       project.year.toString().includes(query)
   );
+
+  // If a year is selected, intersect with year filter
+  if (selectedYear != null) {
+    filteredProjects = filteredProjects.filter(
+      (p) => String(p.year) === String(selectedYear)
+    );
+  }
 
   // Clear container before re-rendering
   projectsContainer.innerHTML = "";
@@ -91,7 +99,10 @@ function renderPieChart(projectsGiven) {
     );
 
   // selection state and syncing
-  let selectedIndex = -1;
+  let selectedIndex =
+    selectedYear == null
+      ? -1
+      : newData.findIndex((d) => d.label === String(selectedYear));
 
   function applySelection() {
     paths.attr("class", (d) =>
@@ -103,10 +114,11 @@ function renderPieChart(projectsGiven) {
 
     // Filter visible project cards based on selected year (if any)
     if (selectedIndex === -1) {
+      selectedYear = null;
       renderProjects(projectsGiven, projectsContainer, "h2");
       titleElement.textContent = `${projectsGiven.length} Total Projects`;
     } else {
-      const selectedYear = newData[selectedIndex].label;
+      selectedYear = newData[selectedIndex].label;
       const filtered = projectsGiven.filter(
         (p) => String(p.year) === String(selectedYear)
       );
