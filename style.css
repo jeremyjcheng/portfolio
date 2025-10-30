@@ -37,14 +37,31 @@ nav {
   margin-bottom: 1.5em;
   --border-color: oklch(50% 10% 200 / 40%);
   border-bottom: 1px solid var(--border-color);
+  flex-wrap: wrap; /* allow items to wrap on small screens */
 }
 
 nav a {
-  flex: 1;
+  flex: 1 1 auto; /* shrink but don't go below content width */
+  min-width: fit-content; /* prevent items from becoming too small */
   text-align: center;
   text-decoration: none;
   color: inherit;
   padding: 10px 20px;
+}
+
+/* Responsive navigation for smaller screens */
+@media (max-width: 768px) {
+  nav a {
+    padding: 10px 12px; /* reduce padding on smaller screens */
+    font-size: 0.9em; /* slightly smaller text */
+  }
+}
+
+@media (max-width: 480px) {
+  nav a {
+    padding: 8px 8px; /* even smaller padding */
+    font-size: 0.85em;
+  }
 }
 
 nav a.current {
