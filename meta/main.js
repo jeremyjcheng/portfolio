@@ -62,15 +62,6 @@ function renderScatterPlot(data, commits) {
 
   const dots = svg.append("g").attr("class", "dots");
 
-  dots
-    .selectAll("circle")
-    .data(commits)
-    .join("circle")
-    .attr("cx", (d) => xScale(d.datetime))
-    .attr("cy", (d) => yScale(d.hourFrac))
-    .attr("r", 5)
-    .attr("fill", "steelblue");
-
   const usableArea = {
     top: margin.top,
     right: width - margin.right,
@@ -79,6 +70,10 @@ function renderScatterPlot(data, commits) {
     width: width - margin.left - margin.right,
     height: height - margin.top - margin.bottom,
   };
+
+  // Update scales with new ranges
+  xScale.range([usableArea.left, usableArea.right]);
+  yScale.range([usableArea.bottom, usableArea.top]);
 
   dots
     .selectAll("circle")
@@ -90,14 +85,11 @@ function renderScatterPlot(data, commits) {
     .attr("fill", "steelblue")
     .on("mouseenter", (event, commit) => {
       renderTooltipContent(commit);
+      updateTooltipVisibility(true);
     })
     .on("mouseleave", () => {
-      // TODO: Hide the tooltip
+      updateTooltipVisibility(false);
     });
-
-  // Update scales with new ranges
-  xScale.range([usableArea.left, usableArea.right]);
-  yScale.range([usableArea.bottom, usableArea.top]);
 
   // Create the axes
   const xAxis = d3.axisBottom(xScale);
@@ -133,6 +125,11 @@ let data = await loadData();
 let commits = processCommits(data);
 
 renderScatterPlot(data, commits);
+
+function updateTooltipVisibility(isVisible) {
+  const tooltip = document.getElementById("commit-tooltip");
+  tooltip.hidden = !isVisible;
+}
 
 function renderTooltipContent(commit) {
   const link = document.getElementById("commit-link");

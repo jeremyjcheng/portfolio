@@ -452,6 +452,8 @@ dl.info {
   grid-template-columns: auto 1fr;
   gap: 0.5em 1em;
   margin: 0;
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
 }
 
 dl.info dt {
@@ -465,11 +467,21 @@ dl.info dd {
   color: canvastext;
 }
 
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+
 /* Tooltip positioning */
 .tooltip {
   position: fixed;
   top: 1em;
   left: 1em;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  padding: 1em;
+  backdrop-filter: blur(10px);
 }
 
 /* Circle hover styles */
