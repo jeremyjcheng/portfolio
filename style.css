@@ -438,3 +438,10 @@ body.dark .github-stats .stat:not(:last-child) {
 .selected:is(path) {
   fill: var(--color);
 }
+
+/* Gridlines styling for scatter plot */
+.gridlines line {
+  stroke: oklch(80% 3% 200);
+  stroke-opacity: 0.3;
+  stroke-width: 1;
+}
