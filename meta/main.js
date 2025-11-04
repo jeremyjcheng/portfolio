@@ -231,7 +231,8 @@ function renderLanguageBreakdown(selection) {
 
     container.innerHTML += `
             <dt>${language}</dt>
-            <dd>${count} lines (${formatted})</dd>
+            <dd>${count} lines</dd>
+            <dd>(${formatted})</dd>
         `;
   }
 }
