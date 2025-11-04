@@ -1,5 +1,8 @@
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm";
 
+let xScale;
+let yScale;
+
 async function loadData() {
   const data = await d3.csv("loc.csv", (row) => ({
     ...row,
@@ -52,13 +55,13 @@ function renderScatterPlot(data, commits) {
     .attr("viewBox", `0 0 ${width} ${height}`)
     .style("overflow", "visible");
 
-  const xScale = d3
+  xScale = d3
     .scaleTime()
     .domain(d3.extent(commits, (d) => d.datetime))
     .range([0, width])
     .nice();
 
-  const yScale = d3.scaleLinear().domain([0, 24]).range([height, 0]);
+  yScale = d3.scaleLinear().domain([0, 24]).range([height, 0]);
 
   const dots = svg.append("g").attr("class", "dots");
 
@@ -134,7 +137,7 @@ function renderScatterPlot(data, commits) {
   );
 
   // Create brush
-  svg.call(d3.brush());
+  svg.call(d3.brush().on("start brush end", brushed));
 
   // Raise dots and everything after overlay
   svg.selectAll(".dots, .overlay ~ *").raise();
@@ -175,6 +178,20 @@ function renderTooltipContent(commit) {
   lines.textContent = commit.totalLines;
 }
 
-function createBrushSelector(svg) {
-  svg.call(d3.brush());
+function brushed(event) {
+  const selection = event.selection;
+  d3.selectAll("circle").classed("selected", (d) =>
+    isCommitSelected(selection, d)
+  );
+}
+
+function isCommitSelected(selection, commit) {
+  if (!selection) {
+    return false;
+  }
+  const [x0, x1] = selection.map((d) => d[0]);
+  const [y0, y1] = selection.map((d) => d[1]);
+  const x = xScale(commit.datetime);
+  const y = yScale(commit.hourFrac);
+  return x >= x0 && x <= x1 && y >= y0 && y <= y1;
 }
