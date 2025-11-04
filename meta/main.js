@@ -132,6 +132,12 @@ function renderScatterPlot(data, commits) {
   gridlines.call(
     d3.axisLeft(yScale).tickFormat("").tickSize(-usableArea.width)
   );
+
+  // Create brush
+  svg.call(d3.brush());
+
+  // Raise dots and everything after overlay
+  svg.selectAll(".dots, .overlay ~ *").raise();
 }
 
 let data = await loadData();
@@ -167,4 +173,8 @@ function renderTooltipContent(commit) {
   time.textContent = commit.time;
   author.textContent = commit.author;
   lines.textContent = commit.totalLines;
+}
+
+function createBrushSelector(svg) {
+  svg.call(d3.brush());
 }
