@@ -75,19 +75,32 @@ function renderScatterPlot(data, commits) {
   xScale.range([usableArea.left, usableArea.right]);
   yScale.range([usableArea.bottom, usableArea.top]);
 
+  // Sort commits by total lines in descending order
+  const sortedCommits = d3.sort(commits, (d) => -d.totalLines);
+
+  // Calculate range of edited lines
+  const [minLines, maxLines] = d3.extent(commits, (d) => d.totalLines);
+
+  // Create radius scale (using square root for proportional area)
+  const rScale = d3.scaleSqrt().domain([minLines, maxLines]).range([2, 30]);
+
   dots
     .selectAll("circle")
-    .data(commits)
+    .data(sortedCommits)
     .join("circle")
     .attr("cx", (d) => xScale(d.datetime))
     .attr("cy", (d) => yScale(d.hourFrac))
-    .attr("r", 5)
+    .attr("r", (d) => rScale(d.totalLines))
     .attr("fill", "steelblue")
+    .style("fill-opacity", 0.7)
     .on("mouseenter", (event, commit) => {
+      d3.select(event.currentTarget).style("fill-opacity", 1);
       renderTooltipContent(commit);
       updateTooltipVisibility(true);
+      updateTooltipPosition(event);
     })
-    .on("mouseleave", () => {
+    .on("mouseleave", (event) => {
+      d3.select(event.currentTarget).style("fill-opacity", 0.7);
       updateTooltipVisibility(false);
     });
 
@@ -129,6 +142,12 @@ renderScatterPlot(data, commits);
 function updateTooltipVisibility(isVisible) {
   const tooltip = document.getElementById("commit-tooltip");
   tooltip.hidden = !isVisible;
+}
+
+function updateTooltipPosition(event) {
+  const tooltip = document.getElementById("commit-tooltip");
+  tooltip.style.left = `${event.clientX}px`;
+  tooltip.style.top = `${event.clientY}px`;
 }
 
 function renderTooltipContent(commit) {
