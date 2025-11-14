@@ -126,8 +126,12 @@ export function renderProjects(
     }
 
     // Populate the article with project details
+    const titleContent = project.url
+      ? `<a href="${project.url}" target="_blank" rel="noopener noreferrer">${project.title}</a>`
+      : project.title;
+
     article.innerHTML = `
-    <${headingLevel}>${project.title}</${headingLevel}>
+    <${headingLevel}>${titleContent}</${headingLevel}>
     <img src="${imagePath}" alt="${project.title}">
     <p> ${project.description || ""} </p>
     <p class="year">Year: ${project.year || ""}</p>

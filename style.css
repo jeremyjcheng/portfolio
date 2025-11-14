@@ -180,6 +180,20 @@ button {
   margin: 0;
 }
 
+/* Keep project links black (including visited links) */
+.projects article a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.projects article a:hover {
+  text-decoration: underline;
+}
+
+.projects article a:visited {
+  color: inherit;
+}
+
 /* Headings */
 h1,
 h2,

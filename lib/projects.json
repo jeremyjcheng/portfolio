@@ -1,5 +1,12 @@
 [
   {
+    "title": "Bikewatching",
+    "image": "images/bikwatching.png",
+    "year": 2025,
+    "description": "\n          Built an interactive web application to visualize bike traffic patterns\n          in the Boston area. Features filtering by time periods and\n          color-coded visualization showing bike departures and arrivals across\n          different stations. Provides insights into bike sharing usage patterns\n          and traffic flow throughout the city.\n        ",
+    "url": "https://jeremyjcheng.github.io/bikewatching/"
+  },
+  {
     "title": "Algal Bloom Detector",
     "image": "images/econaut.png",
     "year": 2025,
