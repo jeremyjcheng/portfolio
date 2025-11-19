@@ -202,7 +202,8 @@ function updateFileDisplay(filteredCommits) {
     .groups(lines, (d) => d.file)
     .map(([name, lines]) => {
       return { name, lines };
-    });
+    })
+    .sort((a, b) => b.lines.length - a.lines.length);
 
   let filesContainer = d3
     .select("#files")
@@ -231,11 +232,14 @@ function updateFileDisplay(filteredCommits) {
     .selectAll("div")
     .data((d) => d.lines)
     .join("div")
-    .attr("class", "loc");
+    .attr("class", "loc")
+    .attr("style", (d) => `--color: ${colors(d.type)}`);
 }
 
 let data = await loadData();
 let commits = processCommits(data);
+
+let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
 let commitProgress = 100;
 
