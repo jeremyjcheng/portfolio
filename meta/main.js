@@ -48,7 +48,7 @@ function processCommits(data) {
 }
 
 function renderScatterPlot(data, commits) {
-  const margin = { top: 10, right: 10, bottom: 30, left: 20 };
+  const margin = { top: 10, right: 10, bottom: 30, left: 50 };
   const width = 1000;
   const height = 600;
   const svg = d3

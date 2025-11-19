@@ -604,6 +604,11 @@ circle.selected {
 
 #scatter-plot svg {
   font-size: 16px;
+  overflow: visible;
+}
+
+#scatter-plot #chart {
+  overflow: visible;
 }
 
 #scatter-plot .tick text {
