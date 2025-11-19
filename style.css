@@ -127,6 +127,11 @@ button {
   border-radius: 4px;
 }
 
+input[type="range"] {
+  padding: 0;
+  border: none;
+}
+
 button {
   background-color: var(--color-accent);
   color: white;

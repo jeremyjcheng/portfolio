@@ -146,7 +146,39 @@ function renderScatterPlot(data, commits) {
 let data = await loadData();
 let commits = processCommits(data);
 
+let commitProgress = 100;
+
+let timeScale = d3
+  .scaleTime()
+  .domain([
+    d3.min(commits, (d) => d.datetime),
+    d3.max(commits, (d) => d.datetime),
+  ])
+  .range([0, 100]);
+
+let commitMaxTime = timeScale.invert(commitProgress);
+
+function onTimeSliderChange() {
+  const slider = document.getElementById("commit-progress");
+  commitProgress = Number(slider.value);
+  commitMaxTime = timeScale.invert(commitProgress);
+
+  const timeElement = document.getElementById("commit-max-time");
+  timeElement.textContent = commitMaxTime.toLocaleString("en", {
+    dateStyle: "long",
+    timeStyle: "short",
+  });
+}
+
 renderScatterPlot(data, commits);
+
+// Initialize the slider value and display on page load
+const slider = document.getElementById("commit-progress");
+if (slider) {
+  slider.value = commitProgress;
+  onTimeSliderChange();
+  slider.addEventListener("input", onTimeSliderChange);
+}
 
 function updateTooltipVisibility(isVisible) {
   const tooltip = document.getElementById("commit-tooltip");

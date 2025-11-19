@@ -8,6 +8,21 @@
   </head>
   <body>
     <h1>Meta</h1>
+    <div style="display: flex; flex: 1; align-items: center; gap: 1em">
+      <label for="commit-progress" style="white-space: nowrap; font-weight: 500"
+        >Show commits until:</label
+      >
+      <input
+        type="range"
+        id="commit-progress"
+        min="0"
+        max="100"
+        step="1"
+        value="100"
+        style="flex: 1; min-width: 200px; margin: 0; padding: 0; border: none"
+      />
+      <time id="commit-max-time" style="margin-left: auto"></time>
+    </div>
     <div id="stats"></div>
     <h2>Commits by time of day</h2>
     <div id="chart"></div>
