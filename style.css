@@ -598,9 +598,22 @@ circle.selected {
   top: 0;
   left: 0;
   bottom: auto;
-  height: 50vh;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+#scatter-plot svg {
+  font-size: 16px;
+}
+
+#scatter-plot .tick text {
+  font-size: 14px;
+}
+
+#scatter-plot h2 {
+  font-size: 1.5em;
 }
 
 .step {
-  padding-bottom: 50vh;
+  padding-bottom: 20vh;
 }
