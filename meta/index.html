@@ -8,36 +8,26 @@
   </head>
   <body>
     <h1>Meta</h1>
-    <div style="display: flex; flex: 1; align-items: center; gap: 1em">
-      <label for="commit-progress" style="white-space: nowrap; font-weight: 500"
-        >Show commits until:</label
-      >
-      <input
-        type="range"
-        id="commit-progress"
-        min="0"
-        max="100"
-        step="1"
-        value="100"
-        style="flex: 1; min-width: 200px; margin: 0; padding: 0; border: none"
-      />
-      <time id="commit-max-time" style="margin-left: auto"></time>
-    </div>
-    <dl id="files">
-      <!-- we want the following structure for each file:
-      <div>
-        <dt>
-          <code>{file.name}</code>
-        </dt>
-        <dd>{file.lines.length} lines</dd>
+    <div id="scrolly-1">
+      <div id="scatter-story"></div>
+      <div id="scatter-plot">
+        <h2>Commits by time of day</h2>
+        <div id="chart"></div>
+        <p id="selection-count">No commits selected</p>
+        <div id="language-breakdown" class="language-breakdown"></div>
+        <h2>Codebase evolution</h2>
+        <dl id="files">
+          <!-- we want the following structure for each file:
+          <div>
+            <dt>
+              <code>{file.name}</code>
+            </dt>
+            <dd>{file.lines.length} lines</dd>
+          </div>
+          -->
+        </dl>
       </div>
-      -->
-    </dl>
-    <div id="stats"></div>
-    <h2>Commits by time of day</h2>
-    <div id="chart"></div>
-    <p id="selection-count">No commits selected</p>
-    <div id="language-breakdown" class="language-breakdown"></div>
+    </div>
     <dl id="commit-tooltip" class="info tooltip" hidden>
       <dt>Commit</dt>
       <dd>

@@ -577,3 +577,48 @@ circle.selected {
   background: var(--color);
   border-radius: 50%;
 }
+
+/* Scrollytelling layout */
+#scrolly-1 {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+}
+
+#scrolly-1 > * {
+  flex: 1;
+}
+
+#scatter-story {
+  position: relative;
+}
+
+#scatter-plot {
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: auto;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+#scatter-plot svg {
+  font-size: 16px;
+  overflow: visible;
+}
+
+#scatter-plot #chart {
+  overflow: visible;
+}
+
+#scatter-plot .tick text {
+  font-size: 14px;
+}
+
+#scatter-plot h2 {
+  font-size: 1.5em;
+}
+
+.step {
+  padding-bottom: 20vh;
+}
